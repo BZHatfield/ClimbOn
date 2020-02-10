@@ -16,6 +16,8 @@ feature 'user registers', %Q{
     visit new_user_registration_path
 
     fill_in 'Email', with: 'john@example.com'
+    fill_in 'Username', with: 'username'
+    fill_in 'Gym', with: 'gym'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
 
