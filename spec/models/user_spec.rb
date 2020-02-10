@@ -9,7 +9,4 @@ RSpec.describe User, type: :model do
   it { should_not have_valid(:username).when(nil, "") }
   it { should validate_uniqueness_of(:username) }
 
-  it { should have_valid(:gym).when("gym") }
-  it { should_not have_valid(:gym).when(nil, "")}
-
 end
