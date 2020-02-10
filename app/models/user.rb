@@ -7,5 +7,5 @@ class User < ApplicationRecord
   validates :gym, presence: true
 
   has_many :sessions
-  has_many :reviews
+  has_many :climbs
 end
