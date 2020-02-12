@@ -16,6 +16,9 @@
 }
 
 .session-index {
-  background-image: url(https://i.imgur.com/aLKRCJ9.jpg);
+
   text-align: center;
+}
+body {
+  background-image: url(https://i.imgur.com/aLKRCJ9.jpg);
 }

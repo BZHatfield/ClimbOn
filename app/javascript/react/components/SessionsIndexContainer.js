@@ -37,9 +37,11 @@ const SessionsIndexContainer = (props) => {
   })
 
   return (
-    <div className="callout session-index">
+    <div className="grid-container-full">
+      <div className="callout session-index">
       <h1>Your Past Sessions</h1>
       {sessionTiles}
+    </div>
     </div>
   )
 }
