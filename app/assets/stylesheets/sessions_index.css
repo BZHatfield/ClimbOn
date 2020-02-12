@@ -1,0 +1,21 @@
+.tile-right {
+  text-align: right;
+}
+
+.tile-left {
+  text-align: left;
+}
+
+.tile-climb-num {
+  padding-left: 15px;
+}
+
+.session-tile {
+  background: rgba(255, 255, 255, 0.7);
+  font-weight: 900;
+}
+
+.session-index {
+  background-image: url(https://i.imgur.com/aLKRCJ9.jpg);
+  text-align: center;
+}
