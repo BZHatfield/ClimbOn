@@ -44,6 +44,8 @@ const SessionShowContainer = (props) => {
     return(
       <ClimbTile
         key={climb.id}
+        id={climb.id}
+        sessionId={sessionId}
         climbStatus={climbStatus}
         climbType={climbType}
         wallType={wallType}

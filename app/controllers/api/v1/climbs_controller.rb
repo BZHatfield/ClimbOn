@@ -6,4 +6,8 @@ class Api::V1::ClimbsController < ApplicationController
     session = Session.find(params["session_id"])
     render json: session.climbs
   end
+
+  def show
+    render json: Climb.find(params["id"])
+  end
 end
