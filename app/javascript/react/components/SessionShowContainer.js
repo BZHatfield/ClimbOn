@@ -32,6 +32,8 @@ const SessionShowContainer = (props) => {
   const climbTiles = climbs.map((climb) => {
 
     let climbStatus = ""
+    let climbType = climb.climb_type
+    let wallType = climb.wall_type
 
     if (climb.completed) {
       climbStatus = "Completed"
@@ -43,7 +45,9 @@ const SessionShowContainer = (props) => {
       <ClimbTile
         key={climb.id}
         climbStatus={climbStatus}
-        climbData={climb}
+        climbType={climbType}
+        wallType={wallType}
+        grade={climb.grade}
       />
     )
   })
