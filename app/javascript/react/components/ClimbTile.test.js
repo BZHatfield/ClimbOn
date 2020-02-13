@@ -8,18 +8,15 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe('ClimbTile', () => {
   let wrapper
-  let climbData
   let climbStatus
 
   beforeEach(() => {
-    climbData = {
-      climbType: "Bouldering",
-      grade: "V5",
-      wallType: "Cave",
-      completed: false
-    }
+    let climbType = "Bouldering"
+    let grade = "V5"
+    let wallType = "Cave"
+    let completed = false
 
-    if (climbData.completed) {
+    if (completed) {
       climbStatus = "Completed"
     } else {
       climbStatus = "Unfinished"
@@ -28,7 +25,9 @@ describe('ClimbTile', () => {
     wrapper = mount(
       <BrowserRouter>
         <ClimbTile
-          climbData={climbData}
+          climbType={climbType}
+          grade={grade}
+          wallType={wallType}
           climbStatus={climbStatus}
         />
       </BrowserRouter>
@@ -50,5 +49,4 @@ describe('ClimbTile', () => {
   it ('should render an h2 element containing the the status of completion received via props', () => {
     expect(wrapper.find('#completed').text()).toBe('Unfinished')
   })
-
 })
