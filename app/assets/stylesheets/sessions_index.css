@@ -10,15 +10,19 @@
   padding-left: 15px;
 }
 
-.session-tile {
+.tile {
   background: rgba(255, 255, 255, 0.7);
   font-weight: 900;
 }
 
 .session-index {
-
   text-align: center;
 }
+
 body {
   background-image: url(https://i.imgur.com/aLKRCJ9.jpg);
+}
+
+h1 {
+  text-align: center;
 }

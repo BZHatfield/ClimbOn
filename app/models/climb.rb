@@ -4,6 +4,5 @@ class Climb < ApplicationRecord
 
   validates :climb_type, presence: true
   validates :grade, presence: true
-  validates :completed, presence: true, inclusion: { in: [true, false] }
-  validates :completed, exclusion: { in: [nil] }
+  validates_inclusion_of :completed, in: [true, false]
 end
