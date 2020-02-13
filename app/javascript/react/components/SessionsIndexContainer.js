@@ -4,7 +4,6 @@ import SessionTile from './SessionTile'
 
 const SessionsIndexContainer = (props) => {
   const [ sessions, setSessions ] = useState([])
-
   useEffect(() => {
     fetch('/api/v1/sessions')
     .then(response => {
@@ -37,11 +36,9 @@ const SessionsIndexContainer = (props) => {
   })
 
   return (
-    <div className="grid-container-full">
-      <div className="callout session-index">
+    <div className="callout index grid-container-full">
       <h1>Your Past Sessions</h1>
       {sessionTiles}
-    </div>
     </div>
   )
 }
