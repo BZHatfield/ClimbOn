@@ -5,7 +5,7 @@ const SessionShowPage = (props) => {
     <div className="info">
       <h1 id="top-line">Session at {props.sessionInfo.gym} on {props.date}</h1>
       <h2 id="time">{props.elapsedTime} minutes</h2>
-      <p id="notes">{props.sessionInfo.notes}</p>
+      <h3 id="notes">{props.sessionInfo.notes}</h3>
     </div>
   )
 }

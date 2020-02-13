@@ -93,4 +93,24 @@ RSpec.describe Api::V1::ClimbsController, type: :controller do
       expect(returned_json.length).to eq 0
     end
   end
+
+  describe "GET#show" do
+    it "should return all the information for one climb attempt" do
+      sign_in user_1
+
+      get :show, params: { session_id: session_1.id, id: climb_1.id }
+      returned_json = JSON.parse(response.body)
+
+      expect(response.status).to eq 200
+      expect(response.content_type).to eq("application/json")
+      expect(returned_json.length).to eq 9
+
+      expect(returned_json["climb_type"]).to eq "Bouldering"
+      expect(returned_json["completed"]).to eq true
+      expect(returned_json["grade"]).to eq "V5"
+      expect(returned_json["wall_type"]).to eq "Cave"
+      expect(returned_json["hold_types"]).to eq "Pinch, Sloper"
+      expect(returned_json["crux"]).to eq "Good foot work is the key to this climb."
+    end
+  end
 end
