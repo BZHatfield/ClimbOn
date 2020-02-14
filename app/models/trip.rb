@@ -1,4 +1,4 @@
-class Session < ApplicationRecord
+class Trip < ApplicationRecord
   validates :elapsed_time, numericality: true
 
   belongs_to :user

@@ -1,30 +1,30 @@
 import React from 'react'
 import Enzyme, { mount } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import SessionShowPage from './SessionShowPage'
+import TripShowPage from './TripShowPage'
 import { BrowserRouter } from 'react-router-dom'
 
 Enzyme.configure({ adapter: new Adapter() })
 
-describe('SessionShowPage', () => {
+describe('TripShowPage', () => {
   let wrapper
-  let sessionInfo
+  let tripInfo
 
   beforeEach(() => {
-    sessionInfo = {
-      gym: 'Test Gym',
+    tripInfo = {
+      location: 'Test Gym',
       created_at: '2020-02-11 20:25:25.633243',
       elapsed_time: '45',
       notes: 'These are test notes'
     }
 
-    let date = (new Date(sessionInfo.created_at)).toDateString()
-    let elapsedTime = sessionInfo.elapsed_time
+    let date = (new Date(tripInfo.created_at)).toDateString()
+    let elapsedTime = tripInfo.elapsed_time
 
     wrapper = mount(
       <BrowserRouter>
-        <SessionShowPage
-          sessionInfo={sessionInfo}
+        <TripShowPage
+          tripInfo={tripInfo}
           date={date}
           elapsedTime={elapsedTime}
         />

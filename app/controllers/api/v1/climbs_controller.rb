@@ -3,8 +3,8 @@ class Api::V1::ClimbsController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
 
   def index
-    session = Session.find(params["session_id"])
-    render json: session.climbs
+    trip = Trip.find(params["trip_id"])
+    render json: trip.climbs
   end
 
   def show

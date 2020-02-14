@@ -6,14 +6,14 @@ const ClimbShowContainer = (props) => {
   const [ climbInfo, setClimbInfo ] = useState({})
 
   let climbId = props.match.params.id
-  let sessionId = props.match.params.session_id
+  let tripId = props.match.params.trip_id
   let completeStatus = ""
   let climbType = climbInfo.climb_type
   let wallType = climbInfo.wall_type
   let holdTypes = climbInfo.hold_types
 
   useEffect(() => {
-    fetch(`/api/v1/sessions/${sessionId}/climbs/${climbId}`)
+    fetch(`/api/v1/trips/${tripId}/climbs/${climbId}`)
     .then(response => {
       if (response.ok) {
         return response

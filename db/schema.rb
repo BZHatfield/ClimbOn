@@ -25,19 +25,19 @@ ActiveRecord::Schema.define(version: 2020_02_12_154813) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
-    t.bigint "session_id", null: false
-    t.index ["session_id"], name: "index_climbs_on_session_id"
+    t.bigint "trip_id", null: false
+    t.index ["trip_id"], name: "index_climbs_on_trip_id"
     t.index ["user_id"], name: "index_climbs_on_user_id"
   end
 
-  create_table "sessions", force: :cascade do |t|
-    t.string "gym"
+  create_table "trips", force: :cascade do |t|
+    t.string "location"
     t.integer "elapsed_time"
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_sessions_on_user_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -3,15 +3,15 @@ require "rails_helper"
 RSpec.describe Api::V1::ClimbsController, type: :controller do
   let!(:user_1) { FactoryBot.create(:user) }
 
-  let!(:session_1) { Session.create(
-    gym: "test gym",
+  let!(:trip_1) { Trip.create(
+    location: "test gym",
     elapsed_time: "45",
     notes: "These are test notes",
     user: user_1
   ) }
 
-  let!(:session_2) { Session.create(
-    gym: "other gym",
+  let!(:trip_2) { Trip.create(
+    location: "other gym",
     elapsed_time: "90",
     notes: "This is the other set of test notes",
     user: user_1
@@ -25,7 +25,7 @@ RSpec.describe Api::V1::ClimbsController, type: :controller do
     hold_types: "Pinch, Sloper",
     crux: "Good foot work is the key to this climb.",
     user: user_1,
-    session: session_1
+    trip: trip_1
   ) }
 
   let!(:climb_2) { Climb.create(
@@ -36,7 +36,7 @@ RSpec.describe Api::V1::ClimbsController, type: :controller do
     hold_types: "Sloper, Crimp",
     crux: "I could not even start this route.",
     user: user_1,
-    session: session_1
+    trip: trip_1
   ) }
 
   let!(:climb_3) { Climb.create(
@@ -47,14 +47,14 @@ RSpec.describe Api::V1::ClimbsController, type: :controller do
     hold_types: "Pinch, Sloper",
     crux: "Being lanky helps so much with this one.",
     user: user_1,
-    session: session_1
+    trip: trip_1
   ) }
 
   describe "GET#index" do
     it "should return a list of all the climb attempts for this session" do
       sign_in user_1
 
-      get :index, params: { session_id: session_1.id }
+      get :index, params: { trip_id: trip_1.id }
       returned_json = JSON.parse(response.body)
 
       expect(response.status).to eq 200
@@ -85,7 +85,7 @@ RSpec.describe Api::V1::ClimbsController, type: :controller do
 
     it "should not include climbs in the second session" do
       sign_in user_1
-      get :index, params: { session_id: session_2.id }
+      get :index, params: { trip_id: trip_2.id }
       returned_json = JSON.parse(response.body)
 
       expect(response.status).to eq 200
@@ -98,7 +98,7 @@ RSpec.describe Api::V1::ClimbsController, type: :controller do
     it "should return all the information for one climb attempt" do
       sign_in user_1
 
-      get :show, params: { session_id: session_1.id, id: climb_1.id }
+      get :show, params: { trip_id: trip_1.id, id: climb_1.id }
       returned_json = JSON.parse(response.body)
 
       expect(response.status).to eq 200

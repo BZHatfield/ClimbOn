@@ -1,18 +1,18 @@
 import React from 'react'
 import { Route, Switch, BrowserRouter } from 'react-router-dom'
 
-import SessionsIndexContainer from './SessionsIndexContainer'
-import SessionShowContainer from './SessionShowContainer'
+import TripsIndexContainer from './TripsIndexContainer'
+import TripShowContainer from './TripShowContainer'
 import ClimbShowContainer from './ClimbShowContainer'
 
 export const App = (props) => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path='/' component={SessionsIndexContainer} />
-        <Route exact path='/sessions' component={SessionsIndexContainer} />
-        <Route exact path='/sessions/:id' component={SessionShowContainer} />
-        <Route exect path='/sessions/:session_id/climbs/:id' component={ClimbShowContainer} />
+        <Route exact path='/' component={TripsIndexContainer} />
+        <Route exact path='/trips' component={TripsIndexContainer} />
+        <Route exact path='/trips/:id' component={TripShowContainer} />
+        <Route exect path='/trips/:trip_id/climbs/:id' component={ClimbShowContainer} />
       </Switch>
     </BrowserRouter>
   )

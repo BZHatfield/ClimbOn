@@ -1,6 +1,6 @@
 class Climb < ApplicationRecord
   belongs_to :user
-  belongs_to :session
+  belongs_to :trip
 
   validates :climb_type, presence: true
   validates :grade, presence: true

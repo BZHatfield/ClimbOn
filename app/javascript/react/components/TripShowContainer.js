@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react'
 
-import SessionShowPage from './SessionShowPage'
+import TripShowPage from './TripShowPage'
 import ClimbTile from './ClimbTile'
 
-const SessionShowContainer = (props) => {
-  const [ sessionInfo, setSessionInfo ] = useState({})
+const TripShowContainer = (props) => {
+  const [ tripInfo, setTripInfo ] = useState({})
   const [ climbs, setClimbs ] = useState([])
 
-  let sessionId = props.match.params.id
-  let date = (new Date(sessionInfo.created_at)).toDateString()
-  let elapsedTime = sessionInfo.elapsed_time
+  let tripId = props.match.params.id
+  let date = (new Date(tripInfo.created_at)).toDateString()
+  let elapsedTime = tripInfo.elapsed_time
 
   useEffect(() => {
-    fetch(`/api/v1/sessions/${sessionId}`)
+    fetch(`/api/v1/trips/${tripId}`)
     .then(response => {
       if (response.ok) {
         return response
@@ -23,7 +23,7 @@ const SessionShowContainer = (props) => {
     })
     .then(response => response.json())
     .then(response => {
-      setSessionInfo(response)
+      setTripInfo(response)
       setClimbs(response.climbs)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
@@ -45,7 +45,7 @@ const SessionShowContainer = (props) => {
       <ClimbTile
         key={climb.id}
         id={climb.id}
-        sessionId={sessionId}
+        tripId={tripId}
         climbStatus={climbStatus}
         climbType={climbType}
         wallType={wallType}
@@ -56,9 +56,9 @@ const SessionShowContainer = (props) => {
 
   return(
     <div className="callout index grid-container-full">
-      <SessionShowPage
+      <TripShowPage
         date={date}
-        sessionInfo={sessionInfo}
+        tripInfo={tripInfo}
         elapsedTime={elapsedTime}
       />
       {climbTiles}
@@ -66,4 +66,4 @@ const SessionShowContainer = (props) => {
   )
 }
 
-export default SessionShowContainer
+export default TripShowContainer

@@ -11,7 +11,7 @@ class CreateClimbs < ActiveRecord::Migration[5.2]
       t.timestamps null: false
 
       t.belongs_to :user, null: false
-      t.belongs_to :session, null: false
+      t.belongs_to :trip, null: false
     end
   end
 end

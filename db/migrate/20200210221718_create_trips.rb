@@ -1,7 +1,7 @@
-class CreateSessions < ActiveRecord::Migration[5.2]
+class CreateTrips < ActiveRecord::Migration[5.2]
   def change
-    create_table :sessions do |t|
-      t.string :gym
+    create_table :trips do |t|
+      t.string :location
       t.integer :elapsed_time
       t.text :notes
 
