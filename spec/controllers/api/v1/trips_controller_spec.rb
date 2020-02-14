@@ -60,7 +60,7 @@ RSpec.describe Api::V1::TripsController, type: :controller do
 
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
-      expect(returned_json.length).to eq 7
+      expect(returned_json.length).to eq 9
 
       expect(returned_json["location"]).to eq "new gym"
       expect(returned_json["elapsed_time"]).to eq 60
