@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const TripTile = (props) => {
+// debugger
   return (
     <div className="tile small-12 callout">
       <Link to={`/trips/${props.tripData.id}`}>
@@ -11,10 +12,10 @@ const TripTile = (props) => {
         </div>
         <div className="grid-y">
           <div className="grid-x grid-padding-x align-justify">
-            <h3 className="climbs-type tile-left cell small-6">Boulding, Top Rope</h3>
+            <h3 className="climbs-type tile-left cell small-6">{props.tripData.types}</h3>
             <h3 id="time" className="tile-right cell small-4">{props.tripData.elapsed_time} minutes</h3>
           </div>
-          <h3 className="completes-attempts tile-climb-num">6 / 12 complete</h3>
+          <h3 className="completes-attempts tile-climb-num">{props.tripData.total}</h3>
         </div>
       </Link>
     </div>
