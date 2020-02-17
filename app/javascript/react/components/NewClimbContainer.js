@@ -57,7 +57,6 @@ const NewClimbContainer = (props) => {
     })
     .then(response => response.json())
     .then(response => {
-      debugger
       setClimbs([...climbs, response.climbs])
       setNewTripId(response.trip.id)
       setShouldRedirect(true)

@@ -17,6 +17,7 @@ const TripTile = (props) => {
           <h3 className="completes-attempts tile-climb-num">{props.tripData.total}</h3>
         </div>
       </Link>
+      <input type="button" onClick={props.handleDelete} value="Delete Session"/>
     </div>
   )
 }

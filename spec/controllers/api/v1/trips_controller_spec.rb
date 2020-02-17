@@ -68,4 +68,14 @@ RSpec.describe Api::V1::TripsController, type: :controller do
       expect(returned_json["user"]["id"]).to eq user_1.id
     end
   end
+
+  describe "DELETE#destroy" do
+    it "should delete the trip" do
+      sign_in user_1
+      prev_count = Trip.count
+
+      delete :destroy, params: { user: user_1, id: trip_1.id }, format: :json
+      expect(Trip.count).to eq(prev_count - 1)
+    end
+  end
 end
