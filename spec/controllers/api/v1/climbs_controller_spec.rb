@@ -113,4 +113,14 @@ RSpec.describe Api::V1::ClimbsController, type: :controller do
       expect(returned_json["crux"]).to eq "Good foot work is the key to this climb."
     end
   end
+
+  describe "DELETE#destroy" do
+    it "should delete the climb" do
+      sign_in user_1
+      prev_count = Climb.count
+
+      delete :destroy, params: { user: user_1, trip_id: trip_1.id, climb: climb_1, id: climb_1.id }, format: :json
+      expect(Climb.count).to eq(prev_count - 1)
+    end
+  end
 end

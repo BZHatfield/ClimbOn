@@ -29,6 +29,13 @@ class Api::V1::ClimbsController < ApplicationController
     end
   end
 
+  def destroy
+    trip = Trip.find(params["trip_id"])
+    climb = Climb.find(params["id"])
+    climb.destroy
+    render json: trip.climbs
+  end
+
   private
   def climb_params
     params.permit(:climbType, :grade, :wallType, :holdTypes, :crux, :completed, :trip_id)
