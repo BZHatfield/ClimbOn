@@ -17,6 +17,7 @@ class Api::V1::ClimbsController < ApplicationController
       climb_type: climb_params["climbType"],
       grade: climb_params["grade"],
       wall_type: climb_params["wallType"],
+      hold_types: climb_params["holdTypes"],
       crux: climb_params["crux"],
       completed: climb_params["completed"],
       trip: trip,
