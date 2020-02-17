@@ -12,7 +12,7 @@ class Api::V1::ClimbsController < ApplicationController
   end
 
   def create
-    trip = current_user.trips.last
+    trip = Trip.find(climb_params["trip_id"])
     climb = Climb.new(
       climb_type: climb_params["climbType"],
       grade: climb_params["grade"],
@@ -31,7 +31,7 @@ class Api::V1::ClimbsController < ApplicationController
 
   private
   def climb_params
-    params.permit(:climbType, :grade, :wallType, :holdTypes, :crux, :completed)
+    params.permit(:climbType, :grade, :wallType, :holdTypes, :crux, :completed, :trip_id)
   end
 
   def trip_params

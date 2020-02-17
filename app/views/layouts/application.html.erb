@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ClimbOn</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>ClimbOn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
     <div data-sticky-container>
       <nav class="top-bar" data-sticky data-margin-top="0">
         <a class="navbar-brand" href="/"><%= image_tag("Logo.png")%></a>
         <ul>
-          <%- if !current_page?(trips_new_path) %>
+          <%- if current_page?(root_url) %>
             <li><%= link_to 'Start New Session', trips_new_path %></li>
           <%- end %>
         </ul>
@@ -45,7 +46,7 @@
     <%- end -%>
     <%= javascript_pack_tag 'application' %>
 
-  <%= yield :extra_footer %>
+    <%= yield :extra_footer %>
 
-</body>
+  </body>
 </html>

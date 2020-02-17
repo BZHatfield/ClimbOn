@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const TripTile = (props) => {
-// debugger
   return (
     <div className="tile small-12 callout">
       <Link to={`/trips/${props.tripData.id}`}>
