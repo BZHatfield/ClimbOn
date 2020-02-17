@@ -3,11 +3,38 @@ class Api::V1::ClimbsController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
 
   def index
-    trip = Trip.find(params["trip_id"])
+    trip = Trip.find(trip_params["trip_id"])
     render json: trip.climbs
   end
 
   def show
     render json: Climb.find(params["id"])
+  end
+
+  def create
+    trip = current_user.trips.last
+    climb = Climb.new(
+      climb_type: climb_params["climbType"],
+      grade: climb_params["grade"],
+      wall_type: climb_params["wallType"],
+      crux: climb_params["crux"],
+      completed: climb_params["completed"],
+      trip: trip,
+      user: current_user
+    )
+    if climb.save
+      render json: climb
+    else
+      render json: { error: climb.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  private
+  def climb_params
+    params.permit(:climbType, :grade, :wallType, :holdTypes, :crux, :completed)
+  end
+
+  def trip_params
+    params.permit(:trip_id)
   end
 end

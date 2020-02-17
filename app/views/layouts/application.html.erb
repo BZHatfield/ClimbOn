@@ -10,7 +10,11 @@
     <div data-sticky-container>
       <nav class="top-bar" data-sticky data-margin-top="0">
         <a class="navbar-brand" href="/"><%= image_tag("Logo.png")%></a>
-
+        <ul>
+          <%- if !current_page?(trips_new_path) %>
+            <li><%= link_to 'Start New Session', trips_new_path %></li>
+          <%- end %>
+        </ul>
         <section class="top-bar-section">
           <ul class="right">
             <%- if current_user -%>
@@ -42,8 +46,6 @@
     <%= javascript_pack_tag 'application' %>
 
   <%= yield :extra_footer %>
-  <footer>
-    <h2>this is my footer</h2>
-  </footer>
+
 </body>
 </html>
