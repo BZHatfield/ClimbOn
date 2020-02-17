@@ -23,6 +23,13 @@ class Api::V1::TripsController < ApplicationController
     end
   end
 
+  def destroy
+    trip = Trip.find(params["id"])
+    trip.destroy
+    trips = Trip.all
+    render json: trips
+  end
+
   private
 
   def trip_params
