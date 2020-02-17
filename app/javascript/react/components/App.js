@@ -3,7 +3,9 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom'
 
 import TripsIndexContainer from './TripsIndexContainer'
 import TripShowContainer from './TripShowContainer'
+import NewTripContainer from './NewTripContainer'
 import ClimbShowContainer from './ClimbShowContainer'
+import NewClimbContainer from './NewClimbContainer'
 
 export const App = (props) => {
   return (
@@ -11,7 +13,9 @@ export const App = (props) => {
       <Switch>
         <Route exact path='/' component={TripsIndexContainer} />
         <Route exact path='/trips' component={TripsIndexContainer} />
+        <Route exact path='/trips/new' component={NewTripContainer} />
         <Route exact path='/trips/:id' component={TripShowContainer} />
+        <Route exact path='/trips/:trip_id/climbs/new' component={NewClimbContainer} />
         <Route exect path='/trips/:trip_id/climbs/:id' component={ClimbShowContainer} />
       </Switch>
     </BrowserRouter>
