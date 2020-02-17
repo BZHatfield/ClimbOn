@@ -15,6 +15,7 @@ const ClimbTile = (props) => {
           <h2 id="completed" className="tile-right cell small-4">{props.climbStatus}</h2>
         </div>
       </Link>
+      <input type="button" onClick={props.handleDelete} value="Delete Climb"/>
     </div>
   )
 }

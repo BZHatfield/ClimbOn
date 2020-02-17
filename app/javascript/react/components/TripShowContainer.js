@@ -29,6 +29,32 @@ const TripShowContainer = (props) => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
+  const deleteClimb = (climbId) => {
+    fetch(`/api/v1/trips/${tripId}/climbs/${climbId}`, {
+      credentials: 'same-origin',
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`, error = new Error(errorMessage)
+        throw error
+      }
+    })
+    .then(response => {
+      return response.json()
+    })
+    .then(response => {
+      setClimbs(response)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
+
   const climbTiles = climbs.map((climb) => {
 
     let climbStatus = ""
@@ -41,6 +67,10 @@ const TripShowContainer = (props) => {
       climbStatus = "Unfinished"
     }
 
+    const handleDelete = () => {
+      deleteClimb(climb.id)
+    }
+
     return(
       <ClimbTile
         key={climb.id}
@@ -50,6 +80,7 @@ const TripShowContainer = (props) => {
         climbType={climbType}
         wallType={wallType}
         grade={climb.grade}
+        handleDelete={handleDelete}
       />
     )
   })
