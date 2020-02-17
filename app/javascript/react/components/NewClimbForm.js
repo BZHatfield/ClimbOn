@@ -1,4 +1,6 @@
 import React from 'react'
+import ErrorList from './ErrorList'
+import _ from 'lodash'
 
 const NewClimbForm = (props) => {
 
@@ -6,6 +8,7 @@ const NewClimbForm = (props) => {
     <div>
       <h1>New Climb Attempt Form</h1>
       <form onSubmit={props.handleSubmit}>
+        <ErrorList errors={props.errors}/>
         <label htmlFor="climbType">
           Climb Type:
           <input type="text" name="climbType" id="climbType"  onChange={props.handleInputChange} value={props.newClimb.climbType}/>

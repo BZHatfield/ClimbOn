@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
+import _ from 'lodash'
 
 import NewClimbForm from './NewClimbForm'
 
 const NewClimbContainer = (props) => {
+  const [ errors, setErrors ] = useState("")
   const [ shouldRedirect, setShouldRedirect ] = useState(false)
   const [ newTripId, setNewTripId] = useState("")
   const [ climbs, setClimbs ] = useState([])
@@ -55,6 +57,7 @@ const NewClimbContainer = (props) => {
     })
     .then(response => response.json())
     .then(response => {
+      debugger
       setClimbs([...climbs, response.climbs])
       setNewTripId(response.trip.id)
       setShouldRedirect(true)
@@ -66,9 +69,25 @@ const NewClimbContainer = (props) => {
     return <Redirect to={`/trips/${newTripId}`} />
   }
 
+  const validSubmission = () => {
+    let submitErrors = {}
+    const requiredFields = ["climbType", "grade", "completed"]
+    requiredFields.forEach((field) => {
+      if (newClimb[field].trim() === "") {
+        submitErrors = {
+          ...submitErrors, [field]: "can't be blank"
+        }
+      }
+    })
+    setErrors(submitErrors)
+    return _.isEmpty(submitErrors)
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault()
-    addNewClimb(newClimb)
+    if (validSubmission()) {
+      addNewClimb(newClimb)
+    }
   }
 
   return(
@@ -77,6 +96,7 @@ const NewClimbContainer = (props) => {
       clearForm={clearForm}
       handleSubmit={handleSubmit}
       handleInputChange={handleInputChange}
+      errors={errors}
     />
   )
 }
