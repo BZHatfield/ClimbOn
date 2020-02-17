@@ -25,7 +25,7 @@ class Api::V1::ClimbsController < ApplicationController
     if climb.save
       render json: climb
     else
-      render json: { error: climb.errors.full_messages }, status: :unprocessable_entity
+      render json: climb.errors.full_messages.to_sentence
     end
   end
 
