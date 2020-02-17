@@ -69,6 +69,37 @@ RSpec.describe Api::V1::TripsController, type: :controller do
     end
   end
 
+  describe "POST#create" do
+    context "when a user is signed in and provides proper trip params" do
+      let!(:new_trip) {{
+        location: "",
+        elapsed_time: "0",
+        notes: "",
+        user: user_1
+      }}
+
+      it "adds a new trip to the database" do
+        sign_in user_1
+
+        prev_count = Trip.count
+        post :create, params: new_trip, format: :json
+        expect(Trip.count).to eq(prev_count + 1)
+      end
+
+      it "returns the new trip as JSON" do
+        sign_in user_1
+
+        post :create, params: new_trip, format: :json
+        response_body = JSON.parse(response.body)
+
+        expect(response_body.length).to eq 9
+        expect(response_body["location"]).to eq nil
+        expect(response_body["elapsed_time"]).to eq 0
+        expect(response_body["notes"]).to eq nil
+      end
+    end
+  end
+
   describe "DELETE#destroy" do
     it "should delete the trip" do
       sign_in user_1
