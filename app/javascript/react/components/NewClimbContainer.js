@@ -34,7 +34,7 @@ const NewClimbContainer = (props) => {
     })
   }
 
-  let tripId = props.match.params.id
+  let tripId = props.match.params.trip_id
   const addNewClimb = (formPayLoad) => {
     fetch(`/api/v1/trips/${tripId}/climbs`, {
       credentials: 'same-origin',
