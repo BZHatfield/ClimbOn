@@ -1,6 +1,7 @@
 import React from 'react'
 
 const ClimbShowPage = (props) => {
+
   return(
     <div>
       <h1 id="top-line">{props.climbType} Climb on a {props.wallType} Wall</h1>

@@ -37,6 +37,23 @@ class Api::V1::ClimbsController < ApplicationController
     render json: trip.climbs
   end
 
+  def update
+    trip = Trip.find(params["climb"]["trip_id"])
+    climb = Climb.find(params["climb"]["id"])
+    climb.update_attributes(
+      climb_type: climb_params["climbType"],
+      grade: climb_params["grade"],
+      wall_type: climb_params["wallType"],
+      hold_types: climb_params["holdTypes"],
+      crux: climb_params["crux"],
+      completed: climb_params["completed"],
+      trip: trip,
+      user: current_user
+    )
+    binding.pry
+    render json: climb
+  end
+
   private
   def climb_params
     params.permit(:climbType, :grade, :wallType, :holdTypes, :crux, :completed, :trip_id)
