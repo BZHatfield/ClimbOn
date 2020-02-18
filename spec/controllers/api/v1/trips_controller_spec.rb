@@ -109,4 +109,20 @@ RSpec.describe Api::V1::TripsController, type: :controller do
       expect(Trip.count).to eq(prev_count - 1)
     end
   end
+
+  describe "PATCH#update" do
+    it "should update the session" do
+      sign_in user_1
+      trip_params = {
+        id: trip_1.id,
+        user_id: user_1.id,
+        location: "updated gym",
+        elapsed_time: "90",
+        notes: "This is the updated session note."
+      }
+      patch :update, params: trip_params, format: :json
+      updated_trip = Trip.find(trip_1.id)
+      expect(updated_trip.notes).to eq "This is the updated session note."
+    end
+  end
 end

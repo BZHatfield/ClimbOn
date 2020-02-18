@@ -39,7 +39,7 @@ class Api::V1::ClimbsController < ApplicationController
 
   def update
     trip = Trip.find(params["trip_id"])
-    climb = Climb.find(params["climb"]["id"])
+    climb = Climb.find(params["id"])
     climb.update_attributes(edit_climb_params)
     render json: climb
   end
