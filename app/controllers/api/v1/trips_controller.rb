@@ -42,6 +42,6 @@ class Api::V1::TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:id, :location, :elapsed_time, :notes, :created_at)
+    params.permit(:id, :location, :elapsed_time, :notes, :created_at)
   end
 end

@@ -7,10 +7,10 @@ const TripShowPage = (props) => {
 
   return(
     <div className="info">
-      {props.tripInfo.location != null &&
+      {props.tripInfo.location != "" &&
         <h1 id="top-line">Session at {props.tripInfo.location} on {props.date}</h1>
       }
-      {props.tripInfo.location == null &&
+      {props.tripInfo.location == "" &&
         <h1 id="top-line">Session on {props.date}</h1>
       }
       {props.tripInfo.elapsed_time > 0 &&

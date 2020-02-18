@@ -181,4 +181,24 @@ RSpec.describe Api::V1::ClimbsController, type: :controller do
       expect(Climb.count).to eq(prev_count - 1)
     end
   end
+
+  describe "PATCH#update" do
+    it "should update the climb" do
+      sign_in user_1
+      climb_params = {
+        climb_type: "Lead",
+        completed: false,
+        grade: "5.10a",
+        wall_type: "Slab",
+        hold_types: "Jug, Ledge",
+        crux: "This is the updated crux notes.",
+        id: climb_1.id,
+        trip_id: trip_1.id,
+        user_id: user_1.id
+      }
+      patch :update, params: climb_params, format: :json
+      updated_climb = Climb.find(climb_1.id)
+      expect(updated_climb.crux).to eq "This is the updated crux notes."
+    end
+  end
 end
