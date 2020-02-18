@@ -7,9 +7,9 @@ const EditClimbForm = (props) => {
     <div>
       <h1>Update Climb Attempt Form</h1>
       <form onSubmit={props.handleEditSubmit}>
-        <label htmlFor="climbType">
+        <label htmlFor="climb_type">
           Climb Type:
-          <input type="text" name="climbType" id="climbType"  onChange={props.handleEditInputChange} value={props.climbType}/>
+          <input type="text" name="climb_type" id="climb_type"  onChange={props.handleEditInputChange} value={props.climbInfo.climb_type}/>
         </label>
 
         <label htmlFor="grade">
@@ -17,14 +17,14 @@ const EditClimbForm = (props) => {
           <input type="text" name="grade" id="grade" onChange={props.handleEditInputChange} value={props.climbInfo.grade}/>
         </label>
 
-        <label htmlFor="wallType">
+        <label htmlFor="wall_type">
           Wall Type:
-          <input type="text" name="wallType" id="wallType" onChange={props.handleEditInputChange} value={props.climbInfo.wall_type}/>
+          <input type="text" name="wall_type" id="wall_type" onChange={props.handleEditInputChange} value={props.climbInfo.wall_type}/>
         </label>
 
-        <label htmlFor="holdTypes">
+        <label htmlFor="hold_types">
           Climbing Hold Types:
-          <input type="text" name="holdTypes" id="holdTypes" onChange={props.handleEditInputChange} value={props.climbInfo.hold_types}/>
+          <input type="text" name="hold_types" id="hold_types" onChange={props.handleEditInputChange} value={props.climbInfo.hold_types}/>
         </label>
 
         <label htmlFor="crux">

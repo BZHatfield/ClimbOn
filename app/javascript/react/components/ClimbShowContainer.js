@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import { Redirect } from 'react-router-dom'
 
 import ClimbShowPage from './ClimbShowPage'
-import EditClimbContainer from './EditClimbContainer'
+import EditClimbForm from './EditClimbForm'
 
 const ClimbShowContainer = (props) => {
+  const [ shouldRedirect, setShouldRedirect ] = useState(false)
   const [ climbInfo, setClimbInfo ] = useState({})
   let climbId = props.match.params.id
   let tripId = props.match.params.trip_id
   let completeStatus = ""
-  let climbType = climbInfo.climb_type
-  let wallType = climbInfo.wall_type
-  let holdTypes = climbInfo.hold_types
 
   useEffect(() => {
     fetch(`/api/v1/trips/${tripId}/climbs/${climbId}`)
@@ -36,7 +35,7 @@ const ClimbShowContainer = (props) => {
   }
 
   const updateClimb = (editedClimb) => {
-    fetch(`/api/v1/trips/${tripId}/climbs/${climbId}`, {
+    fetch(`/api/v1/trips/${editedClimb.trip.id}/climbs/${editedClimb.id}`, {
       credentials: 'same-origin',
       method: "PATCH",
       body: JSON.stringify(editedClimb),
@@ -58,9 +57,14 @@ const ClimbShowContainer = (props) => {
       return response.json()
     })
     .then(response => {
-      debugger
+      setClimbInfo(response)
+      setShouldRedirect(true)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
+
+  if (shouldRedirect) {
+    return <Redirect to={`/trips/${tripId}`}/>
   }
 
   const handleEditSubmit = (event) => {
@@ -79,16 +83,11 @@ const ClimbShowContainer = (props) => {
     <div className="callout index grid-container-full">
       <ClimbShowPage
         completeStatus={completeStatus}
-        climbType={climbType}
-        wallType={wallType}
-        holdTypes={holdTypes}
-        grade={climbInfo.grade}
-        crux={climbInfo.crux}
+        climbInfo={climbInfo}
       />
-    <EditClimbContainer
+    <EditClimbForm
         handleEditSubmit={handleEditSubmit}
         handleEditInputChange={handleEditInputChange}
-        updateClimb={updateClimb}
         climbInfo={climbInfo}
       />
     </div>

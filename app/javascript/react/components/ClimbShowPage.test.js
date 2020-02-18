@@ -8,24 +8,25 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe('ClimbShowPage', () => {
   let wrapper
+  let climbInfo
+  let completeStatus
 
   beforeEach(() => {
-    let climbType = "Bouldering"
-    let wallType = "Cave"
-    let grade = "V5"
-    let completeStatus = "Unfinished"
-    let holdTypes = "Sloper, Pinch"
-    let crux = "Good foot work is the key to this crux"
+    climbInfo = {
+      climb_type: "Bouldering",
+      wall_type: "Cave",
+      grade: "V5",
+      completed: false,
+      hold_types: "Sloper, Pinch",
+      crux: "Good foot work is the key to this crux",
+    }
+    completeStatus = "Unfinished"
 
     wrapper = mount(
       <BrowserRouter>
         <ClimbShowPage
-          climbType={climbType}
-          wallType={wallType}
-          grade={grade}
+          climbInfo={climbInfo}
           completeStatus={completeStatus}
-          holdTypes={holdTypes}
-          crux={crux}
         />
       </BrowserRouter>
     )
