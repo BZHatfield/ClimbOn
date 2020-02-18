@@ -13,8 +13,8 @@ const TripShowPage = (props) => {
       {props.tripInfo.location == null &&
         <h1 id="top-line">Session on {props.date}</h1>
       }
-      {props.elapsedTime > 0 &&
-        <h2 id="time">{props.elapsedTime} minutes</h2>
+      {props.tripInfo.elapsed_time > 0 &&
+        <h2 id="time">{props.tripInfo.elapsed_time} minutes</h2>
       }
       <h3 id="notes">{props.tripInfo.notes}</h3>
       <Link className="callout" to={`/trips/${tripId}/climbs/new`}>
