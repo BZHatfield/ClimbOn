@@ -5,7 +5,7 @@ class Api::V1::TripsController < ApplicationController
 
   def index
     trips = current_user.trips
-    render json: trips
+    render json: trips.reverse
   end
 
   def show
@@ -13,8 +13,11 @@ class Api::V1::TripsController < ApplicationController
   end
 
   def create
-    trip = Trip.new(trip_params)
-    trip.elapsed_time = 0
+    trip = Trip.new(
+      elapsed_time: 0,
+      location: "",
+      notes: ""
+    )
     trip.user = current_user
     if trip.save
       render json: trip
@@ -30,9 +33,15 @@ class Api::V1::TripsController < ApplicationController
     render json: trips
   end
 
+  def update
+    trip = Trip.find(params["id"])
+    trip.update_attributes(trip_params)
+    render json: trip
+  end
+
   private
 
   def trip_params
-    params.permit(:trip)
+    params.require(:trip).permit(:id, :location, :elapsed_time, :notes, :created_at)
   end
 end

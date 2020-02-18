@@ -29,15 +29,15 @@ RSpec.describe Api::V1::TripsController, type: :controller do
       expect(response.content_type).to eq('application/json')
       expect(returned_json.length).to eq 2
 
-      expect(returned_json[0]["location"]).to eq "test gym"
-      expect(returned_json[0]["elapsed_time"]).to eq 45
-      expect(returned_json[0]["notes"]).to eq "These are test notes"
-      expect(returned_json[0]["user"]["id"]).to eq user_1.id
-
-      expect(returned_json[1]["location"]).to eq "new gym"
-      expect(returned_json[1]["elapsed_time"]).to eq 60
-      expect(returned_json[1]["notes"]).to eq "These are also test notes"
+      expect(returned_json[1]["location"]).to eq "test gym"
+      expect(returned_json[1]["elapsed_time"]).to eq 45
+      expect(returned_json[1]["notes"]).to eq "These are test notes"
       expect(returned_json[1]["user"]["id"]).to eq user_1.id
+
+      expect(returned_json[0]["location"]).to eq "new gym"
+      expect(returned_json[0]["elapsed_time"]).to eq 60
+      expect(returned_json[0]["notes"]).to eq "These are also test notes"
+      expect(returned_json[0]["user"]["id"]).to eq user_1.id
     end
 
     it "should not include any sessions" do
@@ -93,9 +93,9 @@ RSpec.describe Api::V1::TripsController, type: :controller do
         response_body = JSON.parse(response.body)
 
         expect(response_body.length).to eq 9
-        expect(response_body["location"]).to eq nil
+        expect(response_body["location"]).to eq ""
         expect(response_body["elapsed_time"]).to eq 0
-        expect(response_body["notes"]).to eq nil
+        expect(response_body["notes"]).to eq ""
       end
     end
   end

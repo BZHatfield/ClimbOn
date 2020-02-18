@@ -3,7 +3,7 @@ class Api::V1::ClimbsController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
 
   def index
-    trip = Trip.find(trip_params["trip_id"])
+    trip = Trip.find(params["trip_id"])
     render json: trip.climbs
   end
 
@@ -12,14 +12,14 @@ class Api::V1::ClimbsController < ApplicationController
   end
 
   def create
-    trip = Trip.find(climb_params["trip_id"])
+    trip = Trip.find(create_climb_params["trip_id"])
     climb = Climb.new(
-      climb_type: climb_params["climb_type"],
-      grade: climb_params["grade"],
-      wall_type: climb_params["wall_type"],
-      hold_types: climb_params["hold_types"],
-      crux: climb_params["crux"],
-      completed: climb_params["completed"],
+      climb_type: create_climb_params["climbType"],
+      grade: create_climb_params["grade"],
+      wall_type: create_climb_params["wallType"],
+      hold_types: create_climb_params["holdTypes"],
+      crux: create_climb_params["crux"],
+      completed: create_climb_params["completed"],
       trip: trip,
       user: current_user
     )
@@ -40,16 +40,16 @@ class Api::V1::ClimbsController < ApplicationController
   def update
     trip = Trip.find(params["trip_id"])
     climb = Climb.find(params["climb"]["id"])
-    climb.update_attributes(climb_params)
+    climb.update_attributes(edit_climb_params)
     render json: climb
   end
 
   private
-  def climb_params
-    params.permit(:id, :climb_type, :grade, :wall_type, :hold_types, :crux, :completed, :trip_id, :user_id)
+  def create_climb_params
+    params.permit(:id, :climbType, :grade, :wallType, :holdTypes, :crux, :completed, :trip_id, :user_id)
   end
 
-  def trip_params
-    params.permit(:trip_id)
+  def edit_climb_params
+    params.permit(:id, :climb_type, :grade, :wall_type, :hold_types, :crux, :completed, :trip_id, :user_id)
   end
 end

@@ -117,11 +117,11 @@ RSpec.describe Api::V1::ClimbsController, type: :controller do
   describe "POST#create" do
     context "when a user is signed in and provides proper climb params" do
       let!(:new_climb) {{
-        climb_type: "Lead",
+        climbType: "Lead",
         completed: true,
         grade: "5.11c",
-        wall_type: "Cave",
-        hold_types: "Pinch, Sloper",
+        wallType: "Cave",
+        holdTypes: "Pinch, Sloper",
         crux: "Being lanky helps so much with this one.",
         user: user_1,
         trip_id: trip_1.id
