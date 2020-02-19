@@ -30,7 +30,7 @@ class Api::V1::TripsController < ApplicationController
     trip = Trip.find(params["id"])
     trip.destroy
     trips = Trip.all
-    render json: trips
+    render json: trips.reverse
   end
 
   def update

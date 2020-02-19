@@ -11,29 +11,31 @@
     <div data-sticky-container>
       <nav class="top-bar" data-sticky data-margin-top="0">
         <a class="navbar-brand" href="/"><%= image_tag("Logo.png")%></a>
-        <ul>
           <%- if current_page?(root_url) %>
-            <li><%= link_to 'Start New Session', trips_new_path %></li>
+            <button class="button large secondary">
+              <%= link_to 'Start New Session', trips_new_path %>
+            </button>
           <%- end %>
-        </ul>
         <section class="top-bar-section">
-          <ul class="right">
+          <div class="right">
             <%- if current_user -%>
-              <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+            <button class="button secondary">
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+            </button>
             <%- else -%>
-              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-              <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <button class="button secondary">
+              <%= link_to 'Sign Up', new_user_registration_path %>
+            </button>
+            <button class="button secondary">
+              <%= link_to 'Sign In', new_user_session_path %>
+            </button>
             <%- end -%>
-          </ul>
+          </div>
         </section>
       </nav>
     </div>
 
-    <%- flash.each do |key, value| -%>
-      <div class="flash flash-<%= key %>">
-        <%= value %>
-      </div>
-    <%- end -%>
+    
 
     <%= yield %>
 
