@@ -6,3 +6,9 @@ nav .navbar-brand {
 .top-bar {
   background-color: #208BB7;
 }
+
+.button {
+  margin: 0px;
+  border-radius: 10px;
+  background-color: #208BB7;
+}

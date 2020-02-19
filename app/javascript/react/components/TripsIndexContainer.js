@@ -68,14 +68,14 @@ const TripsIndexContainer = (props) => {
   })
 
   return (
-    <div className="callout index grid-container-full">
+    <div className="index grid-frame">
       {trips.length > 0 &&
-        <h1>Your Past Sessions</h1>
+        <h1 className="header">Your Past Sessions</h1>
       }
       {trips.length == 0 &&
-        <div className="tile">
+        <div>
           <h1>Welcome!</h1>
-          <h1>Click the link in the Nav Bar to start your first Session!</h1>
+          <h1>Once you are signed in, click the link in the Nav Bar to start your first Session!</h1>
         </div>
       }
       {tripTiles}

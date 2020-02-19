@@ -7,9 +7,9 @@ const NewTripPage = (props) => {
 
   return(
     <div>
-      <h1>You have started a new Climbing Session!</h1>
-      <Link to={`/trips/${tripId}/climbs/new`}>
-        <h2>Click Here to Start a new Climb Attempt!</h2>
+      <h1 className="info">You have started a new Climbing Session!</h1>
+      <Link className="new" to={`/trips/${tripId}/climbs/new`}>
+        <button className="button large">Click Here to Start a new Climb Attempt!</button>
       </Link>
     </div>
   )

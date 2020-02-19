@@ -1,3 +1,24 @@
 .info {
   text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  background: rgba(255, 255, 255, 0.7);
+  font-weight: 900;
+  margin: 50px;
+}
+
+.new {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 490px;
+  margin-right: 490px;
+  padding-bottom: 100vh;
+}
+
+.new-background {
+  background-image: url(https://i.imgur.com/dKeacjI.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size:cover;
 }

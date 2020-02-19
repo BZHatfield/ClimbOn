@@ -17,8 +17,8 @@ const TripShowPage = (props) => {
         <h2 id="time">{props.tripInfo.elapsed_time} minutes</h2>
       }
       <h3 id="notes">{props.tripInfo.notes}</h3>
-      <Link className="callout" to={`/trips/${tripId}/climbs/new`}>
-        Click here to add a new Climb Attempt to this Session!
+      <Link to={`/trips/${tripId}/climbs/new`}>
+        <button className="button">Click here to add a new Climb Attempt to this Session!</button>
       </Link>
     </div>
   )

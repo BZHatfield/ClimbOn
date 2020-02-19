@@ -14,10 +14,10 @@ const TripTile = (props) => {
             <h3 className="climbs-type tile-left cell small-6">{props.tripData.types}</h3>
             <h3 id="time" className="tile-right cell small-4">{props.tripData.elapsed_time} minutes</h3>
           </div>
-          <h3 className="completes-attempts tile-climb-num">{props.tripData.total}</h3>
+          <h3 className="completes-attempts tile-right">{props.tripData.total}</h3>
         </div>
       </Link>
-      <input type="button" onClick={props.handleDelete} value="Delete Session"/>
+      <input className="delete tile-left" type="button" onClick={props.handleDelete} value="Delete Session"/>
     </div>
   )
 }

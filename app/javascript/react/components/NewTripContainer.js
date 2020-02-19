@@ -35,11 +35,13 @@ const NewTripContainer = (props) => {
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
-  
+
   return(
-    <NewTripPage
-      tripId={newTrip.id}
-    />
+    <div className="new-background grid-frame">
+      <NewTripPage
+        tripId={newTrip.id}
+      />
+    </div>
   )
 }
 
