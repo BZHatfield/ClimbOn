@@ -6,12 +6,15 @@ import TripShowContainer from './TripShowContainer'
 import NewTripContainer from './NewTripContainer'
 import ClimbShowContainer from './ClimbShowContainer'
 import NewClimbContainer from './NewClimbContainer'
+import ChatContainer from './ChatContainer'
 
 export const App = (props) => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path='/' component={TripsIndexContainer} />
+        <Route exact path='/chats' component={ChatContainer} />
+        <Route exact path='/chats/:id' component={ChatContainer} />
         <Route exact path='/trips' component={TripsIndexContainer} />
         <Route exact path='/trips/new' component={NewTripContainer} />
         <Route exact path='/trips/:id' component={TripShowContainer} />

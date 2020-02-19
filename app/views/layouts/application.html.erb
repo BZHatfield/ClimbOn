@@ -15,6 +15,9 @@
           <%- if current_page?(root_url) %>
             <li><%= link_to 'Start New Session', trips_new_path %></li>
           <%- end %>
+          <li>
+            <%= link_to 'Go to Chat!', chats_path %>
+          </li>
         </ul>
         <section class="top-bar-section">
           <ul class="right">
