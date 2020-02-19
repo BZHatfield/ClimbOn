@@ -16,10 +16,9 @@
               <%= link_to 'Start New Session', trips_new_path %>
             </button>
           <%- end %>
-          <li>
+          <button class="button large secondary">
             <%= link_to 'Go to Chat!', chats_path %>
-          </li>
-        </ul>
+          </button>
         <section class="top-bar-section">
           <div class="right">
             <%- if current_user -%>
@@ -39,7 +38,7 @@
       </nav>
     </div>
 
-    
+
 
     <%= yield %>
 
