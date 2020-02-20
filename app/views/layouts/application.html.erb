@@ -16,9 +16,11 @@
               <%= link_to 'Start New Session', trips_new_path %>
             </button>
           <%- end %>
-          <button class="button large secondary">
-            <%= link_to 'Go to Chat!', chats_path %>
-          </button>
+          <% if !current_page?(chats_path) %>
+            <button class="button large secondary">
+              <%= link_to 'Go to Chat!', chats_path %>
+            </button>
+          <% end %>
         <section class="top-bar-section">
           <div class="right">
             <%- if current_user -%>

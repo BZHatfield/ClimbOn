@@ -4,7 +4,7 @@ const TextFieldWithSubmit = props => {
   return (
     <div className='input-group'>
       <input
-        className='input-group-field'
+        className='field input-group-field'
         name={props.name}
         onChange={props.handlerFunction}
         type='text'

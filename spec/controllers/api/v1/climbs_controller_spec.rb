@@ -114,64 +114,6 @@ RSpec.describe Api::V1::ClimbsController, type: :controller do
     end
   end
 
-  describe "POST#create" do
-    context "when a user is signed in and provides proper climb params" do
-      let!(:new_climb) {{
-        climbType: "Lead",
-        completed: true,
-        grade: "5.11c",
-        wallType: "Cave",
-        holdTypes: "Pinch, Sloper",
-        crux: "Being lanky helps so much with this one.",
-        user: user_1,
-        trip_id: trip_1.id
-      }}
-
-      it "adds a new climb to the database" do
-        sign_in user_1
-
-        prev_count = Climb.count
-        post :create, params: new_climb, format: :json
-        expect(Climb.count).to eq(prev_count + 1)
-      end
-
-      it "returns the new climb as JSON" do
-        sign_in user_1
-
-        post :create, params: new_climb, format: :json
-        response_body = JSON.parse(response.body)
-
-        expect(response_body["trip"]["climbs"].length).to eq 4
-        expect(response_body["trip"]["climbs"][3]["climb_type"]).to eq "Lead"
-        expect(response_body["trip"]["climbs"][3]["completed"]).to eq true
-        expect(response_body["trip"]["climbs"][3]["grade"]).to eq "5.11c"
-        expect(response_body["trip"]["climbs"][3]["wall_type"]).to eq "Cave"
-        expect(response_body["trip"]["climbs"][3]["hold_types"]).to eq "Pinch, Sloper"
-        expect(response_body["trip"]["climbs"][3]["crux"]).to eq "Being lanky helps so much with this one."
-      end
-    end
-
-    context "When a user submits a climb without required params" do
-      let!(:bad_climb) {{
-        climbType: "",
-        completed: nil,
-        grade: "",
-        wallType: "",
-        holdTypes: "",
-        crux: "",
-        user: user_1,
-        trip_id: trip_1.id
-      }}
-
-      it "does not add the new climb to the database" do
-        sign_in user_1
-        prev_count = Climb.count
-        post :create, params: bad_climb, format: :json
-        expect(Climb.count).to eq(prev_count)
-      end
-    end
-  end
-
   describe "DELETE#destroy" do
     it "should delete the climb" do
       sign_in user_1

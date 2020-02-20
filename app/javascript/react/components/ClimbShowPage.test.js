@@ -49,6 +49,6 @@ describe('ClimbShowPage', () => {
   })
 
   it ('should render an h3 element containing the crux notes received via props', () => {
-    expect(wrapper.find('#crux').text()).toBe('Good foot work is the key to this crux')
+    expect(wrapper.find('#crux').text()).toBe('Crux/Notes: Good foot work is the key to this crux')
   })
 })

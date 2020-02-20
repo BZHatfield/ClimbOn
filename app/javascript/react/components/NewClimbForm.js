@@ -5,44 +5,83 @@ import _ from 'lodash'
 const NewClimbForm = (props) => {
 
   return(
-    <div>
-      <h1>New Climb Attempt Form</h1>
-      <form onSubmit={props.handleSubmit}>
-        <ErrorList errors={props.errors}/>
-        <label htmlFor="climbType">
-          Climb Type:
-          <input type="text" name="climbType" id="climbType"  onChange={props.handleInputChange} value={props.newClimb.climbType}/>
-        </label>
+    <div className="log-in">
+      <div className="tile grid-container">
+        <h1>New Climb Attempt Form</h1>
+        <form onSubmit={props.handleSubmit}>
+          <ErrorList className="error" errors={props.errors}/>
 
-        <label htmlFor="grade">
-          Route Grade:
-          <input type="text" name="grade" id="grade" onChange={props.handleInputChange} value={props.newClimb.grade}/>
-        </label>
+          <label htmlFor="climbType">
+            Climb Type:
+            <select className="type" name="climbType" id="climbType" onChange={props.handleInputChange} value={props.newClimb.climbType}>
+              <option value=""></option>
+              <option value="Bouldering">Bouldering</option>
+              <option value="Top Rope">Top Rope</option>
+              <option value="Lead">Lead</option>
+            </select>
+          </label>
 
-        <label htmlFor="wallType">
-          Wall Type:
-          <input type="text" name="wallType" id="wallType" onChange={props.handleInputChange} value={props.newClimb.wallType}/>
-        </label>
+          <label htmlFor="grade">
+            Route Grade:
+            <select type="text" name="grade" id="grade" onChange={props.handleInputChange} value={props.newClimb.grade}>
+              <option value={props.grades[0]}>{props.grades[0]}</option>
+              <option value={props.grades[1]}>{props.grades[1]}</option>
+              <option value={props.grades[2]}>{props.grades[2]}</option>
+              <option value={props.grades[3]}>{props.grades[3]}</option>
+              <option value={props.grades[4]}>{props.grades[4]}</option>
+              <option value={props.grades[5]}>{props.grades[5]}</option>
+              <option value={props.grades[6]}>{props.grades[6]}</option>
+              <option value={props.grades[7]}>{props.grades[7]}</option>
+              <option value={props.grades[8]}>{props.grades[8]}</option>
+              <option value={props.grades[9]}>{props.grades[9]}</option>
+              <option value={props.grades[10]}>{props.grades[10]}</option>
+              <option value={props.grades[11]}>{props.grades[11]}</option>
+              <option value={props.grades[12]}>{props.grades[12]}</option>
+              <option value={props.grades[13]}>{props.grades[13]}</option>
+              <option value={props.grades[14]}>{props.grades[14]}</option>
+              <option value={props.grades[15]}>{props.grades[15]}</option>
+            </select>
+          </label>
 
-        <label htmlFor="holdTypes">
-          Climbing Hold Types:
-          <input type="text" name="holdTypes" id="holdTypes" onChange={props.handleInputChange} value={props.newClimb.holdTypes}/>
-        </label>
+          <label htmlFor="wallType">
+            Wall Type:
+            <select type="text" name="wallType" id="wallType" onChange={props.handleInputChange} value={props.newClimb.wallType}>
+              <option value=""></option>
+              <option value="Slab">Slab</option>
+              <option value="Vertical">Vertical</option>
+              <option value="Overhang">Overhang</option>
+            </select>
+          </label>
 
-        <label htmlFor="crux">
-          Crux / Notes:
-          <textarea name="crux" id="crux" onChange={props.handleInputChange} value={props.newClimb.crux}/>
-        </label>
+          <fieldset htmlFor="holdTypes" value={props.checkboxes}>
+            <legend>Climbing Hold Types:</legend>
+            <input type="checkbox" name="holdTypes" id="holdTypes" onChange={props.handleCheckboxChange} value="Jug"/><label>Jug</label>
+            <input type="checkbox" name="holdTypes" id="holdTypes" onChange={props.handleCheckboxChange} value="Ledge"/><label>Ledge</label>
+            <input type="checkbox" name="holdTypes" id="holdTypes" onChange={props.handleCheckboxChange} value="Crimp"/><label>Crimp</label>
+            <input type="checkbox" name="holdTypes" id="holdTypes" onChange={props.handleCheckboxChange} value="Pinch"/><label>Pinch</label>
+            <input type="checkbox" name="holdTypes" id="holdTypes" onChange={props.handleCheckboxChange} value="Sloper"/><label>Sloper</label>
+            <input type="checkbox" name="holdTypes" id="holdTypes" onChange={props.handleCheckboxChange} value="Pocket"/><label>Pocket</label>
+            <input type="checkbox" name="holdTypes" id="holdTypes" onChange={props.handleCheckboxChange} value="Undercling"/><label>Undercling</label>
+            <input type="checkbox" name="holdTypes" id="holdTypes" onChange={props.handleCheckboxChange} value="Flake"/><label>Flake</label>
+            <input type="checkbox" name="holdTypes" id="holdTypes" onChange={props.handleCheckboxChange} value="Horn"/><label>Horn</label>
+          </fieldset>
 
-        <label htmlFor="completed">
-          Completed? (true or false)
-          <input type="text" name="completed" id="completed" onChange={props.handleInputChange} value={props.newClimb.completed}/>
-        </label>
+          <label htmlFor="crux">
+            Crux / Notes:
+            <textarea name="crux" id="crux" onChange={props.handleInputChange} value={props.newClimb.crux}/>
+          </label>
 
-        <input className="form-input" type="submit" id="submit"/>
-        <br/>
-        <input className="form-input" type="button" onClick={props.clearForm} value="Clear" />
-      </form>
+          <fieldset htmlFor="completed" value={props.newClimb.completed}>
+            <legend>Completed?</legend>
+            <input type="radio" name="completed" id="completed" onChange={props.handleInputChange} value="true"/><label htmlFor="completed">True</label>
+            <input type="radio" name="completed" id="completed" onChange={props.handleInputChange} value="false"/><label htmlFor="completed">False</label>
+          </fieldset>
+
+          <input className="form-input" type="submit" id="submit"/>
+          <br/>
+          <input className="form-input" type="button" onClick={props.clearForm} value="Clear" />
+        </form>
+      </div>
     </div>
   )
 }
