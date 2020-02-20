@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  url: redis://redistogo:018d806a418edd859515db6599e8d223@dory.redistogo.com:10178/
   channel_prefix: ClimbOn_production
