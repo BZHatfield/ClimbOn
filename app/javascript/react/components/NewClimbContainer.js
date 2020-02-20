@@ -3,8 +3,6 @@ import { Redirect } from 'react-router-dom'
 import _ from 'lodash'
 import ErrorList from './ErrorList'
 
-// import NewClimbForm from './NewClimbForm'
-
 const NewClimbContainer = (props) => {
   const [ errors, setErrors ] = useState("")
   const [ shouldRedirect, setShouldRedirect ] = useState(false)
@@ -89,13 +87,8 @@ const NewClimbContainer = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    // debugger
-    // setNewClimb({...newClimb, holdTypes: checkboxes})
-    // setNewClimb({...newClimb, completed: false})
-    // debugger
     let payload = {climbData: newClimb, holdTypes: checkboxes}
     if (validSubmission()) {
-      // debugger
       addNewClimb(payload)
     }
   }
