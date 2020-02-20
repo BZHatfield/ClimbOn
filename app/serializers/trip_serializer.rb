@@ -19,7 +19,9 @@ class TripSerializer < ActiveModel::Serializer
   def types
     types = []
     object.climbs.each do |climb|
-      types << climb.climb_type
+      if !types.include?(climb.climb_type)
+        types << climb.climb_type
+      end
     end
     return types.join(', ')
   end

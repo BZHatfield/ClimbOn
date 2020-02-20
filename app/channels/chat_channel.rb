@@ -9,8 +9,6 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def receive(data)
-    # binding.pry
-    # puts data
     # Currently, we dont actually use this code that much. But you would have to set up these models if you want to record the conversations in your chat.
 
 
