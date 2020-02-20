@@ -81,17 +81,20 @@ const ChatContainer = (props) => {
   }, this);
 
   return(
-    <div>
-      <div className='callout chat' id='chatWindow'>
-        {messagesComponents}
+    <div className="log-in">
+      <div className="tile">
+        <h1>Chat with other Climbers!</h1>
+        <div className='chat' id='chatWindow'>
+          {messagesComponents}
+        </div>
+        <form className="chat-field" onSubmit={handleFormSubmit}>
+          <TextFieldWithSubmit
+            content={message}
+            name='message'
+            handlerFunction={handleMessageChange}
+          />
+        </form>
       </div>
-      <form onSubmit={handleFormSubmit}>
-        <TextFieldWithSubmit
-          content={message}
-          name='message'
-          handlerFunction={handleMessageChange}
-        />
-      </form>
     </div>
   );
 }

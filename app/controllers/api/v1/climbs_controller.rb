@@ -12,12 +12,13 @@ class Api::V1::ClimbsController < ApplicationController
   end
 
   def create
-    trip = Trip.find(create_climb_params["trip_id"])
+    hold_types = create_hold_types.join(', ')
+    trip = Trip.find(params["trip_id"])
     climb = Climb.new(
       climb_type: create_climb_params["climbType"],
       grade: create_climb_params["grade"],
       wall_type: create_climb_params["wallType"],
-      hold_types: create_climb_params["holdTypes"],
+      hold_types: hold_types,
       crux: create_climb_params["crux"],
       completed: create_climb_params["completed"],
       trip: trip,
@@ -46,7 +47,11 @@ class Api::V1::ClimbsController < ApplicationController
 
   private
   def create_climb_params
-    params.permit(:id, :climbType, :grade, :wallType, :holdTypes, :crux, :completed, :trip_id, :user_id)
+    params.require(:climbData).permit(:climbType, :grade, :wallType, :crux, :completed)
+  end
+
+  def create_hold_types
+    params.require(:holdTypes)
   end
 
   def edit_climb_params

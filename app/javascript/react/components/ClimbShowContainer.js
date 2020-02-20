@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 
 import ClimbShowPage from './ClimbShowPage'
-import EditClimbForm from './EditClimbForm'
 
 const ClimbShowContainer = (props) => {
   const [ shouldRedirect, setShouldRedirect ] = useState(false)
@@ -79,15 +78,21 @@ const ClimbShowContainer = (props) => {
     })
   }
 
+  let grades = []
+  const boulderGrades = ["", "VB", "V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9", "V10", "V11", "V12"]
+  const ropeGrades = ["", "5.5", "5.6", "5.7", "5.8", "5.9-", "5.9+", "5.10-", "5.10+", "5.11-", "5.11+", "5.12-", "5.12+", "5.13-", "5.13+"]
+
+  if (climbInfo.climbType == "Bouldering") {
+    grades = boulderGrades
+  } else {
+    grades = ropeGrades
+  }
+
   return(
     <div className="callout index grid-container-full">
       <ClimbShowPage
+        tripId={tripId}
         completeStatus={completeStatus}
-        climbInfo={climbInfo}
-      />
-    <EditClimbForm
-        handleEditSubmit={handleEditSubmit}
-        handleEditInputChange={handleEditInputChange}
         climbInfo={climbInfo}
       />
     </div>

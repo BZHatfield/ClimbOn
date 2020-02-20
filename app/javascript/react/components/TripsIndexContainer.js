@@ -73,7 +73,7 @@ const TripsIndexContainer = (props) => {
         <h1 className="header">Your Past Sessions</h1>
       }
       {trips.length == 0 &&
-        <div>
+        <div className="tile">
           <h1>Welcome!</h1>
           <h1>Once you are signed in, click the link in the Nav Bar to start your first Session!</h1>
         </div>

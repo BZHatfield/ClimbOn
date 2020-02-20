@@ -1,0 +1,17 @@
+/* from devise */
+.log-in {
+  background-image: url(https://i.imgur.com/aLKRCJ9.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 20vh;
+  padding-bottom: 30vh;
+}
+
+.field {
+  width: 25vw;
+}
+
+.form-center {
+  padding-left: 275px;
+}
