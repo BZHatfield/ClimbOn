@@ -95,8 +95,8 @@ const NewClimbContainer = (props) => {
 
   let grades = []
   const boulderGrades = ["", "VB", "V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9", "V10", "V11", "V12"]
-  const ropeGrades = ["", "5.5", "5.6", "5.7", "5.8", "5.9-", "5.9+", "5.10-", "5.10+", "5.11-", "5.11+", "5.12-", "5.12+", "5.13-", "5.13+"]
-
+  const ropeGrades = ["", "5.8", "5.9", "5.10-", "5.10+", "5.11-", "5.11", "5.11+", "5.12-", "5.12", "5.12+", "5.13-", "5.13+", "5.14-", "5.14+"]
+debugger
   if (newClimb.climbType == "Bouldering") {
     grades = boulderGrades
   } else {
@@ -138,7 +138,6 @@ const NewClimbContainer = (props) => {
               <option value={grades[12]}>{grades[12]}</option>
               <option value={grades[13]}>{grades[13]}</option>
               <option value={grades[14]}>{grades[14]}</option>
-              <option value={grades[15]}>{grades[15]}</option>
             </select>
           </label>
 
