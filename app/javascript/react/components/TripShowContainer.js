@@ -135,17 +135,19 @@ const TripShowContainer = (props) => {
   })
 
   return(
-    <div className="callout index grid-container-full">
-      <TripShowPage
-        date={date}
-        tripInfo={tripInfo}
-      />
-      {climbTiles}
-      <EditTripForm
-        handleEditSubmit={handleEditSubmit}
-        handleEditInputChange={handleEditInputChange}
-        tripInfo={tripInfo}
-      />
+    <div className="index">
+      <div className="grid-x grid-padding-x align-center">
+        <TripShowPage
+          date={date}
+          tripInfo={tripInfo}
+        />
+        {climbTiles}
+        <EditTripForm
+          handleEditSubmit={handleEditSubmit}
+          handleEditInputChange={handleEditInputChange}
+          tripInfo={tripInfo}
+        />
+      </div>
     </div>
   )
 }

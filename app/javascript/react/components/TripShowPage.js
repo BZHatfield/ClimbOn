@@ -7,19 +7,23 @@ const TripShowPage = (props) => {
 
   return(
     <div className="info">
-      {props.tripInfo.location != "" &&
-        <h1 id="top-line">Session at {props.tripInfo.location} on {props.date}</h1>
-      }
-      {props.tripInfo.location == "" &&
-        <h1 id="top-line">Session on {props.date}</h1>
-      }
-      {props.tripInfo.elapsed_time > 0 &&
-        <h2 id="time">{props.tripInfo.elapsed_time} minutes</h2>
-      }
-      <h3 id="notes">{props.tripInfo.notes}</h3>
-      <Link to={`/trips/${tripId}/climbs/new`}>
-        <button className="button">Click here to add a new Climb Attempt to this Session!</button>
-      </Link>
+      <div className="grid-x align-center">
+        {props.tripInfo.location != "" &&
+          <h1 className="cell small-12" id="top-line">Session at {props.tripInfo.location} on {props.date}</h1>
+        }
+        {props.tripInfo.location == "" &&
+          <h1 className="cell small-10" id="top-line">Session on {props.date}</h1>
+        }
+        {props.tripInfo.elapsed_time > 0 &&
+          <h2 className="cell small-10" id="time">{props.tripInfo.elapsed_time} minutes</h2>
+        }
+        <h3 className="cell small-10" id="notes">{props.tripInfo.notes}</h3>
+        <div className="cell small-6">
+          <Link to={`/trips/${tripId}/climbs/new`}>
+            <button className="button">Click here to add a new Climb Attempt to this Session!</button>
+          </Link>
+        </div>
+      </div>
     </div>
   )
 }

@@ -70,17 +70,21 @@ const TripsIndexContainer = (props) => {
   })
 
   return (
-    <div className="index grid-frame">
-      {trips.length > 0 &&
-        <h1 className="header">Your Past Sessions</h1>
-      }
-      {trips.length == 0 &&
-        <div className="tile">
-          <h1>Welcome!</h1>
-          <h1>Once you are signed in, click the link in the Nav Bar to start your first Session!</h1>
-        </div>
-      }
-      {tripTiles}
+    <div className="index">
+      <div className="grid-x grid-padding-x align-center">
+        {trips.length > 0 &&
+          <h1 className="header cell small-6">Your Past Sessions</h1>
+        }
+        {trips.length == 0 &&
+          <div className="index cell small-10">
+            <div className="tile">
+              <h1>Welcome!</h1>
+              <h1>Once you are signed in, click the link in the Nav Bar to start your first Session!</h1>
+            </div>
+          </div>
+        }
+        {tripTiles}
+      </div>
     </div>
   )
 }
