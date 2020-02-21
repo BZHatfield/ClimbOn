@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/', to: 'static_pages#index'
   get '/chats', to: 'static_pages#index'
+  get '/charts/:id', to: 'static_pages#index'
   get '/trips', to: 'static_pages#index'
   get '/trips/new', to: 'static_pages#index'
   get '/trips/:id', to: 'static_pages#index'
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
       resources :trips, only: [:index, :show, :create, :destroy, :update] do
         resources :climbs, only: [:index, :show, :create, :destroy, :update]
       end
+      resources :charts, only: [:show]
     end
   end
 

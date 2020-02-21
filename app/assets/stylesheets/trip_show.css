@@ -38,3 +38,13 @@
   margin-left: 5vw;
   margin-right: 5vw;
 }
+
+.card {
+  margin-left: 25vw;
+  margin-right: 25vw;
+}
+
+.chart-title {
+  background: rgba(202, 202, 202, 0.9);
+  text-align: center;
+}
