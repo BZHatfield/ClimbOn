@@ -14,6 +14,8 @@ const TripShowContainer = (props) => {
   let date = (new Date(tripInfo.created_at)).toDateString()
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+
     fetch(`/api/v1/trips/${tripId}`)
     .then(response => {
       if (response.ok) {

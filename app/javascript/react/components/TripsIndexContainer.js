@@ -5,6 +5,8 @@ import TripTile from './TripTile'
 const TripsIndexContainer = (props) => {
   const [ trips, setTrips ] = useState([])
   useEffect(() => {
+    window.scrollTo(0, 0)
+
     fetch('/api/v1/trips')
     .then(response => {
       if (response.ok) {

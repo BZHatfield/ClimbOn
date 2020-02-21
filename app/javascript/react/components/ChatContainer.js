@@ -8,6 +8,8 @@ const ChatContainer = (props) => {
   const [message, setMessage] = useState("")
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+
     fetch("/api/v1/users/current", {
       credentials: 'same-origin',
       method: 'GET',
