@@ -12,6 +12,8 @@ const NewTripContainer = (props) => {
   }
 
   useEffect((emptyTrip) => {
+    window.scrollTo(0, 0)
+
     fetch(`/api/v1/trips`, {
       credentials: 'same-origin',
       method: 'POST',

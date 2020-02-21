@@ -11,6 +11,8 @@ const ClimbShowContainer = (props) => {
   let completeStatus = ""
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+
     fetch(`/api/v1/trips/${tripId}/climbs/${climbId}`)
     .then(response => {
       if (response.ok) {
