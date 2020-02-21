@@ -91,12 +91,14 @@ const ClimbShowContainer = (props) => {
   }
 
   return(
-    <div className="callout index grid-container-full">
-      <ClimbShowPage
-        tripId={tripId}
-        completeStatus={completeStatus}
-        climbInfo={climbInfo}
-      />
+    <div className="show">
+      <div className="grid-x grid-padding-x align-center">
+        <ClimbShowPage
+          tripId={tripId}
+          completeStatus={completeStatus}
+          climbInfo={climbInfo}
+        />
+      </div>
     </div>
   )
 }
