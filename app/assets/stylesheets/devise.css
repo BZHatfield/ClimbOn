@@ -4,14 +4,19 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 20vh;
-  padding-bottom: 30vh;
+  padding-bottom: 50vh;
 }
 
 .field {
-  width: 25vw;
+  width: 50vw;
 }
 
-.form-center {
-  padding-left: 275px;
+.devise-form {
+  background: rgba(255, 255, 255, 0.7);
+  font-weight: 900;
+  margin-top: 5vh;
+  text-align: center;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-bottom: 10vh;
 }

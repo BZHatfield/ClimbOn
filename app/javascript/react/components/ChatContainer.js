@@ -81,7 +81,7 @@ const ChatContainer = (props) => {
   }, this);
 
   return(
-    <div className="log-in">
+    <div className="new-climb-form">
       <div className="tile">
         <h1>Chat with other Climbers!</h1>
         <div className='chat' id='chatWindow'>

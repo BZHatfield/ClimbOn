@@ -9,10 +9,10 @@
 .tile {
   background: rgba(255, 255, 255, 0.7);
   font-weight: 900;
-  /* margin-left: 200px;
-  margin-right: 200px;
-  margin-bottom: 75px; */
+  margin-left: 5%;
+  margin-right: 5%;
   margin-top: 5vh;
+  margin-bottom: 5vh;
 }
 
 .index {
@@ -20,8 +20,8 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  /* margin-bottom: 0px;
-  padding-bottom: 80vh; */
+  padding-bottom: 10vh;
+  padding-top: 5vh;
   height: 100%;
 }
 
@@ -36,9 +36,6 @@ h1 {
 .header {
   background: rgba(202, 202, 202, 0.9);
   font-weight: 900;
-  /* margin-left: 300px;
-  margin-right: 300px;
-  /* margin-top: 75px; */
   margin-top: 5vh;
   border-radius: 20px;
 }
@@ -50,4 +47,21 @@ h1 {
   margin-left: 100px;
   margin-right: 100px;
   margin-top: 75px;
+}
+
+.welcome {
+  background-image: url(https://i.imgur.com/aLKRCJ9.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding-top: 5vh;
+}
+
+.chart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }

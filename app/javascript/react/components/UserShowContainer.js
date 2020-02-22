@@ -46,7 +46,7 @@ const UserShowContainer = (props) => {
   let wallData = [wallHeader, ['Vertical', verticalNumber], ['Overhang', overhangNumber], ['Slab', slabNumber]]
 
   return(
-    <div className="show">
+    <div className="log-in">
       <h1>Your Climbing Charts</h1>
       <div className="grid-x grid-padding-x">
         <div className="card">

@@ -18,3 +18,12 @@
 .back {
   padding-top: 25px;
 }
+
+.new-climb-form {
+  background-image: url(https://i.imgur.com/aLKRCJ9.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 50vh;
+  padding-top: 5vh;
+}

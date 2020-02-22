@@ -18,7 +18,7 @@ const TripShowPage = (props) => {
           <h2 className="cell small-10" id="time">{props.tripInfo.elapsed_time} minutes</h2>
         }
         <h3 className="cell small-10" id="notes">{props.tripInfo.notes}</h3>
-        <div className="cell small-6">
+        <div className="climb-button cell small-6">
           <Link to={`/trips/${tripId}/climbs/new`}>
             <button className="button">Click here to add a new Climb Attempt to this Session!</button>
           </Link>
