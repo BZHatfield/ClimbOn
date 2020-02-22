@@ -96,7 +96,7 @@ const NewClimbContainer = (props) => {
   let grades = []
   const boulderGrades = ["", "VB", "V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9", "V10", "V11", "V12"]
   const ropeGrades = ["", "5.8", "5.9", "5.10-", "5.10+", "5.11-", "5.11", "5.11+", "5.12-", "5.12", "5.12+", "5.13-", "5.13+", "5.14-", "5.14+"]
-debugger
+
   if (newClimb.climbType == "Bouldering") {
     grades = boulderGrades
   } else {
@@ -104,7 +104,7 @@ debugger
   }
 
   return(
-    <div className="log-in">
+    <div className="new-climb-form">
       <div className="tile grid-container">
         <h1>New Climb Attempt Form</h1>
         <form onSubmit={handleSubmit}>

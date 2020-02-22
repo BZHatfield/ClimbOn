@@ -5,8 +5,8 @@ const ClimbShowPage = (props) => {
 
   return(
     <div className="info">
-      <div className="grid-x grid-padding-x align-center">
-        <h1 id="top-line">{props.climbInfo.climb_type} Climb on a {props.climbInfo.wall_type} Wall</h1>
+      <div className="grid-x align-center">
+        <h1 className="top-line" id="top-line">{props.climbInfo.climb_type} Climb on a {props.climbInfo.wall_type} Wall</h1>
         <div className="small-6 small-centered text-center columns">
           <Link to={`/trips/${props.tripId}`}>
             <button className="button">Go back to the list of climbs</button>

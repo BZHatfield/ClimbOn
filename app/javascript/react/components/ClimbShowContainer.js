@@ -92,7 +92,7 @@ const ClimbShowContainer = (props) => {
 
   return(
     <div className="show">
-      <div className="grid-x grid-padding-x align-center">
+      <div className="grid-x align-center">
         <ClimbShowPage
           tripId={tripId}
           completeStatus={completeStatus}

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 import TripTile from './TripTile'
+import UserShowContainer from './UserShowContainer'
 
 const TripsIndexContainer = (props) => {
   const [ trips, setTrips ] = useState([])
@@ -50,7 +52,6 @@ const TripsIndexContainer = (props) => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
-
   const tripTiles = trips.map((trip) => {
 
     let date = (new Date(trip.created_at)).toDateString()
@@ -65,26 +66,31 @@ const TripsIndexContainer = (props) => {
         tripData={trip}
         date={date}
         handleDelete={handleDelete}
-      />
+        />
     )
   })
 
   return (
-    <div className="index">
-      <div className="grid-x grid-padding-x align-center">
-        {trips.length > 0 &&
-          <h1 className="header cell small-6">Your Past Sessions</h1>
-        }
-        {trips.length == 0 &&
-          <div className="index cell small-10">
-            <div className="tile">
-              <h1>Welcome!</h1>
-              <h1>Once you are signed in, click the link in the Nav Bar to start your first Session!</h1>
-            </div>
+    <div>
+      {trips.length == 0 &&
+        <div className="welcome">
+          <div className="tile">
+            <h1>Welcome!</h1>
+            <h1>Once you are signed in, click the link in the Nav Bar to start your first Session!</h1>
           </div>
-        }
-        {tripTiles}
-      </div>
+        </div>
+      }
+      {trips.length > 0 &&
+        <div className="index grid-x grid-padding-x align-center">
+          <div className="cell small-12 chart-button">
+            <Link to={`/charts/${trips[0].user.id}`}>
+              <button className="large button">View Your Climb Data</button>
+            </Link>
+          </div>
+          <h1 className="header cell small-8">Your Past Sessions</h1>
+          {tripTiles}
+        </div>
+      }
     </div>
   )
 }
