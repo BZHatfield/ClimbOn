@@ -6,7 +6,7 @@ const EditTripForm = (props) => {
     <div className="tile grid-container">
     <h1>New Session Form</h1>
       <div className="small-4 small-centered columns">
-        <form onSubmit={props.handleEditSubmit}>
+        <form className="climb-form" onSubmit={props.handleEditSubmit}>
           <label htmlFor="location">
             Location:
             <input className="chat-field" type="text" name="location" id="location" onChange={props.handleEditInputChange} value={props.tripInfo.location}/>
@@ -23,7 +23,6 @@ const EditTripForm = (props) => {
           </label>
 
           <input className="form-input" type="submit" id="submit"/>
-          <hr/>
         </form>
       </div>
     </div>
