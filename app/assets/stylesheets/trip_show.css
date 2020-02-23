@@ -1,6 +1,6 @@
 .info {
   text-align: center;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.85);
   font-weight: 900;
   margin: 50px;
 }
@@ -41,7 +41,7 @@
 }
 
 .chart-title {
-  background: rgba(202, 202, 202, 0.9);
+  background: rgba(202, 202, 202, 0.85);
   text-align: center;
 }
 
