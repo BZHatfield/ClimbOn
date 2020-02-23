@@ -67,7 +67,7 @@ climb_2 = Climb.create(
 climb_3 = Climb.create(
   climb_type: "Lead",
   completed: true,
-  grade: "5.10b",
+  grade: "5.10-",
   wall_type: "Overhang",
   hold_types: "Ledge, Pocket",
   crux: "They make it tough to clip into the bolts with the pocket holds. Some of the bolts are so far apart that when you fall, you fall far",
@@ -77,7 +77,7 @@ climb_3 = Climb.create(
 climb_4 = Climb.create(
   climb_type: "Top Rope",
   completed: false,
-  grade: "5.11c",
+  grade: "5.11+",
   wall_type: "Slab",
   hold_types: "Undercling, Pinch",
   crux: "Woof this slab is crazy tough, static start almost impossible. Do dynamic starts on this one for now. Will project.",
@@ -87,7 +87,7 @@ climb_4 = Climb.create(
 climb_5 = Climb.create(
   climb_type: "Top Rope",
   completed: true,
-  grade: "5.10c",
+  grade: "5.10+",
   wall_type: "Vertical",
   hold_types: "Ledge, Sloper",
   crux: "Good final climb for the session. Hands were a little burnt out for the slopers but I powered through it, remember to leverage your body properly if you try this one later.",

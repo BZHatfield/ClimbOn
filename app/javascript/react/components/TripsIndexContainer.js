@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import TripTile from './TripTile'
-import UserShowContainer from './UserShowContainer'
+import ChartsContainer from './ChartsContainer'
 
 const TripsIndexContainer = (props) => {
   const [ trips, setTrips ] = useState([])
@@ -81,7 +81,7 @@ const TripsIndexContainer = (props) => {
         </div>
       }
       {trips.length > 0 &&
-        <div className="index grid-x grid-padding-x align-center">
+        <div className="show grid-x grid-padding-x align-center">
           <div className="cell small-12 chart-button">
             <Link to={`/charts/${trips[0].user.id}`}>
               <button className="large button">View Your Climb Data</button>

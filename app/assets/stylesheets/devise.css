@@ -12,11 +12,18 @@
 }
 
 .devise-form {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.85);
   font-weight: 900;
   margin-top: 5vh;
   text-align: center;
   padding-left: 5vw;
   padding-right: 5vw;
   padding-bottom: 10vh;
+}
+
+.flashes {
+  background-color: #208BB7;
+  text-align: center;
+  font-weight: 900;
+  color: red;
 }

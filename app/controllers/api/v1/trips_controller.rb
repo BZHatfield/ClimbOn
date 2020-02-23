@@ -28,8 +28,9 @@ class Api::V1::TripsController < ApplicationController
 
   def destroy
     trip = Trip.find(params["id"])
+    trip.climbs.destroy_all
     trip.destroy
-    trips = Trip.all
+    trips = current_user.trips
     render json: trips.reverse
   end
 

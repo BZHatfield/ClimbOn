@@ -11,16 +11,18 @@
     <div data-sticky-container>
       <nav class="top-bar" data-sticky data-margin-top="0">
         <a class="navbar-brand" href="/"><%= image_tag("Logo.png")%></a>
+        <% if current_user %>
           <%- if current_page?(root_url) %>
-            <button class="button large secondary">
-              <%= link_to 'Start New Session', trips_new_path %>
-            </button>
+          <button class="button large secondary">
+            <%= link_to 'Start New Session', trips_new_path %>
+          </button>
           <%- end %>
           <% if !current_page?(chats_path) %>
-            <button class="button large secondary">
-              <%= link_to 'Go to Chat!', chats_path %>
-            </button>
+          <button class="button large secondary">
+            <%= link_to 'Go to Chat!', chats_path %>
+          </button>
           <% end %>
+        <% end %>
         <section class="top-bar-section">
           <div class="right">
             <%- if current_user -%>
@@ -40,7 +42,11 @@
       </nav>
     </div>
 
-
+    <%- flash.each do |key, value| -%>
+      <div class="flashes flash flash-<%= key %>">
+        <%= value %>
+      </div>
+    <%- end -%>
 
     <%= yield %>
 
