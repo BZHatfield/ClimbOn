@@ -272,35 +272,35 @@ const ChartsContainer = (props) => {
     }
   })
 
-  let rateFiveEight = successFiveEight/totalFiveEight
-  let rateFiveNine = successFiveNine/totalFiveNine
-  let rateFiveTenMinus = successFiveTenMinus/totalFiveTenMinus
-  let rateFiveTenPlus = successFiveTenPlus/totalFiveTenPlus
-  let rateFiveElevenMinus = successFiveElevenMinus/totalFiveElevenMinus
-  let rateFiveEleven = successFiveEleven/totalFiveEleven
-  let rateFiveElevenPlus = successFiveElevenPlus/totalFiveElevenPlus
-  let rateFiveTwelveMinus = successFiveTwelveMinus/totalFiveTwelveMinus
-  let rateFiveTwelve = successFiveTwelve/totalFiveTwelve
-  let rateFiveTwelvePlus = successFiveTwelvePlus/totalFiveTwelvePlus
-  let rateFiveThirteenMinus = successFiveThirteenMinus/totalFiveThirteenMinus
-  let rateFiveThirteenPlus = successFiveThirteenPlus/totalFiveThirteenPlus
-  let rateFiveFourteenMinus = successFiveFourteenMinus/totalFiveFourteenMinus
-  let rateFiveFourteenPlus = successFiveFourteenPlus/totalFiveFourteenPlus
+  let rateFiveEight = successFiveEight/totalFiveEight * 100
+  let rateFiveNine = successFiveNine/totalFiveNine * 100
+  let rateFiveTenMinus = successFiveTenMinus/totalFiveTenMinus * 100
+  let rateFiveTenPlus = successFiveTenPlus/totalFiveTenPlus * 100
+  let rateFiveElevenMinus = successFiveElevenMinus/totalFiveElevenMinus * 100
+  let rateFiveEleven = successFiveEleven/totalFiveEleven * 100
+  let rateFiveElevenPlus = successFiveElevenPlus/totalFiveElevenPlus * 100
+  let rateFiveTwelveMinus = successFiveTwelveMinus/totalFiveTwelveMinus * 100
+  let rateFiveTwelve = successFiveTwelve/totalFiveTwelve * 100
+  let rateFiveTwelvePlus = successFiveTwelvePlus/totalFiveTwelvePlus * 100
+  let rateFiveThirteenMinus = successFiveThirteenMinus/totalFiveThirteenMinus * 100
+  let rateFiveThirteenPlus = successFiveThirteenPlus/totalFiveThirteenPlus * 100
+  let rateFiveFourteenMinus = successFiveFourteenMinus/totalFiveFourteenMinus * 100
+  let rateFiveFourteenPlus = successFiveFourteenPlus/totalFiveFourteenPlus * 100
 
-  let vBRate = vBSuccess / vBTotal
-  let v0Rate = v0Success / v0Total
-  let v1Rate = v1Success / v1Total
-  let v2Rate = v2Success / v2Total
-  let v3Rate = v3Success / v3Total
-  let v4Rate = v4Success / v4Total
-  let v5Rate = v5Success / v5Total
-  let v6Rate = v6Success / v6Total
-  let v7Rate = v7Success / v7Total
-  let v8Rate = v8Success / v8Total
-  let v9Rate = v9Success / v9Total
-  let v10Rate = v10Success / v10Total
-  let v11Rate = v11Success / v11Total
-  let v12Rate = v12Success / v12Total
+  let vBRate = vBSuccess / vBTotal * 100
+  let v0Rate = v0Success / v0Total * 100
+  let v1Rate = v1Success / v1Total * 100
+  let v2Rate = v2Success / v2Total * 100
+  let v3Rate = v3Success / v3Total * 100
+  let v4Rate = v4Success / v4Total * 100
+  let v5Rate = v5Success / v5Total * 100
+  let v6Rate = v6Success / v6Total * 100
+  let v7Rate = v7Success / v7Total * 100
+  let v8Rate = v8Success / v8Total * 100
+  let v9Rate = v9Success / v9Total * 100
+  let v10Rate = v10Success / v10Total * 100
+  let v11Rate = v11Success / v11Total * 100
+  let v12Rate = v12Success / v12Total * 100
 
   let wallData = [wallHeader, ['Vertical', verticalNumber],
   ['Overhang', overhangNumber], ['Slab', slabNumber]]
@@ -350,59 +350,87 @@ const ChartsContainer = (props) => {
             graph_id="PieChart"
             width="50vw"
             height="50vh"
-          />
+            />
         </div>
         <div className="card">
           <div className="chart-title">
-            <h3>Successes Rate at Each Boulder Grade</h3>
+            <h3>Success Rate at Each Boulder Grade</h3>
           </div>
           <Chart
             chartType="LineChart"
             data={boulderRateData}
-            options={{}}
+            options={{
+              hAxis: {
+                title: 'Boulder Grade',
+              },
+              vAxis: {
+                title: 'Success Percentage',
+              },
+            }}
             graph_id="BoulderRateChart"
             width="50vw"
             height="50vh"
-          />
+            />
         </div>
         <div className="card">
           <div className="chart-title">
-            <h3>Successes Rate at Each Roped Grade</h3>
+            <h3>Number of Successes at Each Boulder Grade</h3>
+          </div>
+          <Chart
+            chartType="BarChart"
+            data={boulderSuccessData}
+            options={{
+              hAxis: {
+                title: 'Number of Successes',
+              },
+              vAxis: {
+                title: 'Boulder Grade',
+              },
+            }}
+            graph_id="BoulderChart"
+            width="50vw"
+            height="50vh"
+            />
+        </div>
+        <div className="card">
+          <div className="chart-title">
+            <h3>Success Rate at Each Roped Grade</h3>
           </div>
           <Chart
             chartType="LineChart"
             data={ropeRateData}
-            options={{}}
+            options={{
+              hAxis: {
+                title: 'Roped Grade',
+              },
+              vAxis: {
+                title: 'Success Percentage',
+              },
+            }}
             graph_id="RopeRateChart"
             width="50vw"
             height="50vh"
-          />
+            />
         </div>
         <div className="card">
-        <div className="chart-title">
-          <h3>Successes at Each Boulder Grade</h3>
-        </div>
-          <Chart
-            chartType="BarChart"
-            data={boulderSuccessData}
-            options={{}}
-            graph_id="BoulderChart"
-            width="50vw"
-            height="50vh"
-          />
-        </div>
-        <div className="card">
-        <div className="chart-title">
-          <h3>Successes at Each Roped Grade</h3>
-        </div>
+          <div className="chart-title">
+            <h3>Number of Successes at Each Roped Grade</h3>
+          </div>
           <Chart
             chartType="BarChart"
             data={ropeSuccessData}
-            options={{}}
+            options={{
+              hAxis: {
+                title: 'Number of Successes',
+              },
+              vAxis: {
+                title: 'Roped Grade',
+              },
+            }}
             graph_id="RopeChart"
             width="50vw"
             height="50vh"
-          />
+            />
         </div>
       </div>
     </div>
