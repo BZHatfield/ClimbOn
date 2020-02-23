@@ -13,8 +13,8 @@ const ClimbShowPage = (props) => {
           </Link>
         </div>
       </div>
-      <div className="callout box-margin grid-x">
-        <div className="align-justify">
+      <div className="callout box-margin">
+        <div className="align-center">
           <h2 id="grade">Grade: {props.climbInfo.grade}</h2>
           <h2 id="complete-status">{props.completeStatus}</h2>
         <h2 id="hold-types">Hold Types: {props.climbInfo.hold_types}</h2>
