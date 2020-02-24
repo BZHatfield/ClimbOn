@@ -5,7 +5,7 @@ class Api::V1::TripsController < ApplicationController
 
   def index
     trips = current_user.trips
-    render json: trips.reverse
+    render json: trips
   end
 
   def show
@@ -31,7 +31,7 @@ class Api::V1::TripsController < ApplicationController
     trip.climbs.destroy_all
     trip.destroy
     trips = current_user.trips
-    render json: trips.reverse
+    render json: trips
   end
 
   def update
