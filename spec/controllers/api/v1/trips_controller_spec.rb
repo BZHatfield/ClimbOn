@@ -29,14 +29,14 @@ RSpec.describe Api::V1::TripsController, type: :controller do
       expect(response.content_type).to eq('application/json')
       expect(returned_json.length).to eq 2
 
-      expect(returned_json[1]["location"]).to eq "test gym"
-      expect(returned_json[1]["elapsed_time"]).to eq 45
-      expect(returned_json[1]["notes"]).to eq "These are test notes"
+      expect(returned_json[1]["location"]).to eq "new gym"
+      expect(returned_json[1]["elapsed_time"]).to eq 60
+      expect(returned_json[1]["notes"]).to eq "These are also test notes"
       expect(returned_json[1]["user"]["id"]).to eq user_1.id
 
-      expect(returned_json[0]["location"]).to eq "new gym"
-      expect(returned_json[0]["elapsed_time"]).to eq 60
-      expect(returned_json[0]["notes"]).to eq "These are also test notes"
+      expect(returned_json[0]["location"]).to eq "test gym"
+      expect(returned_json[0]["elapsed_time"]).to eq 45
+      expect(returned_json[0]["notes"]).to eq "These are test notes"
       expect(returned_json[0]["user"]["id"]).to eq user_1.id
     end
 
