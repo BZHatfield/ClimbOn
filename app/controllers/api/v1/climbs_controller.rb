@@ -12,7 +12,11 @@ class Api::V1::ClimbsController < ApplicationController
   end
 
   def create
-    hold_types = create_hold_types.join(', ')
+    if create_hold_types != nil
+      hold_types = create_hold_types.join(', ')
+    else
+      hold_types = ""
+    end
     trip = Trip.find(params["trip_id"])
     climb = Climb.new(
       climb_type: create_climb_params["climbType"],
@@ -51,7 +55,11 @@ class Api::V1::ClimbsController < ApplicationController
   end
 
   def create_hold_types
-    params.require(:holdTypes)
+    if params[:holdTypes] != []
+      params.require[:holdTypes]
+    else
+      params.permit[:holdTypes]
+    end
   end
 
   def edit_climb_params
