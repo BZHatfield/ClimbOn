@@ -56,7 +56,7 @@ class Api::V1::ClimbsController < ApplicationController
 
   def create_hold_types
     if params[:holdTypes] != []
-      params.require[:holdTypes]
+      params.require(:holdTypes)
     else
       params.permit[:holdTypes]
     end
