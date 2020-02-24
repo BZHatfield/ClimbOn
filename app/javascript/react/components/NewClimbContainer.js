@@ -105,7 +105,7 @@ const NewClimbContainer = (props) => {
 
   return(
     <div className="new-climb-form">
-      <div className="tile grid-container">
+      <div className="tile top-line">
         <h1>New Climb Attempt Form</h1>
         <form className="climb-form" onSubmit={handleSubmit}>
           <ErrorList className="error" errors={errors}/>
