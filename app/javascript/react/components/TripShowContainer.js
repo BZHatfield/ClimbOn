@@ -137,10 +137,12 @@ const TripShowContainer = (props) => {
   return(
     <div className="index">
       <div className="grid-x grid-padding-x align-center">
-        <TripShowPage
-          date={date}
-          tripInfo={tripInfo}
-        />
+        <div className="small-10">
+          <TripShowPage
+            date={date}
+            tripInfo={tripInfo}
+          />
+        </div>
         {climbTiles}
         <EditTripForm
           handleEditSubmit={handleEditSubmit}
