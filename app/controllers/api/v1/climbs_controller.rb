@@ -13,7 +13,8 @@ class Api::V1::ClimbsController < ApplicationController
 
   def create
     if create_hold_types != nil
-      hold_types = create_hold_types.join(', ')
+      unique_holds = create_hold_types.uniq
+      hold_types = unique_holds.join(', ')
     else
       hold_types = ""
     end
